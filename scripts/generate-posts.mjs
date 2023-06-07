@@ -41,6 +41,10 @@ function postTemplate(page, content) {
     slug,
     title,
     date,
-    content: content.parent,
+    content: fixMarkdown(content.parent),
   };
+}
+
+function fixMarkdown(markdown) {
+  return markdown.replaceAll("</details>\n", "</details>\n\n");
 }

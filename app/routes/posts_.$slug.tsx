@@ -1,6 +1,7 @@
 import type { V2_MetaFunction, LoaderArgs } from "@remix-run/node";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPost } from "../models/post.model";
@@ -28,7 +29,11 @@ export default function Post() {
       <article className="prose max-w-none pb-4">
         <h1 className="mb-2">{title}</h1>
         <div>{date}</div>
-        <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown
+          children={content}
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+        />
       </article>
     </main>
   );

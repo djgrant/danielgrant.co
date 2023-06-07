@@ -9,3 +9,7 @@ html {
 .task-list-item input {
   margin: 0;
 }
+
+summary {
+  cursor: pointer;
+}
