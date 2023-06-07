@@ -5,7 +5,7 @@ export function Posts({ posts }: { posts: Post[] }) {
   return (
     <ul>
       {posts.map((post) => (
-        <li>
+        <li key={post.slug}>
           <NavLink to={`/posts/${post.slug}`}>{post.title}</NavLink>
         </li>
       ))}
