@@ -15,7 +15,7 @@ export default function Index() {
   const posts = useLoaderData<typeof loader>();
 
   return (
-    <main className="prose dark:prose-invert max-w-none pb-6">
+    <main className="prose max-w-none pb-6">
       <h2>Hello!</h2>
       <p>Description about Daniel Grant</p>
       <h2>Posts</h2>

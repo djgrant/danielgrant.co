@@ -25,7 +25,7 @@ export default function Post() {
   const { date, title, content } = useLoaderData<typeof loader>();
   return (
     <main>
-      <article className="prose dark:prose-invert max-w-none pb-4">
+      <article className="prose max-w-none pb-4">
         <h1 className="mb-2">{title}</h1>
         <div>{date}</div>
         <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
