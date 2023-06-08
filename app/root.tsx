@@ -27,9 +27,11 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div className="max-w-3xl md:mx-auto px-5 sm:px-8">
+        <div className="flex flex-col  h-screen max-w-3xl md:mx-auto px-5 sm:px-8">
           <Header />
-          <Outlet />
+          <div className="flex-1">
+            <Outlet />
+          </div>
           <Footer />
         </div>
         <ScrollRestoration />
