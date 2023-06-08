@@ -13,3 +13,15 @@ html {
 summary {
   cursor: pointer;
 }
+
+pre {
+  font-size: 14px !important;
+}
+
+.prose pre {
+  margin: 1.6em 0 !important;
+}
+
+.prose details {
+  margin: 0.375em 0;
+}

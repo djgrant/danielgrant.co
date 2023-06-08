@@ -10,7 +10,7 @@ import {
 } from "@remix-run/react";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
-import stylesheet from "~/tailwind.css";
+import stylesheet from "~/styles.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
