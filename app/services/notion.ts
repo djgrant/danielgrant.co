@@ -1,5 +1,4 @@
 import "dotenv/config";
-import fs from "fs/promises";
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
 import slugify from "@sindresorhus/slugify";

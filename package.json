@@ -6,6 +6,7 @@
     "start": "remix-serve build"
   },
   "dependencies": {
+    "@isaacs/ttlcache": "^1.4.0",
     "@mapbox/rehype-prism": "^0.8.0",
     "@notionhq/client": "^1.0.1",
     "@remix-run/css-bundle": "^1.17.0",
