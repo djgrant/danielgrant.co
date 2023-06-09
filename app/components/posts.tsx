@@ -1,7 +1,7 @@
-import type { Post } from "~/types";
+import type { PageMeta } from "~/services/notion";
 import { NavLink } from "@remix-run/react";
 
-export function Posts({ posts }: { posts: Post[] }) {
+export function Posts({ posts }: { posts: PageMeta[] }) {
   return (
     <ul>
       {posts.map((post) => (

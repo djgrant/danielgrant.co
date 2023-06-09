@@ -1,8 +1,8 @@
 import type { V2_MetaFunction, HeadersFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getPosts } from "~/models/post.model";
 import { Posts } from "~/components/posts";
+import { getPosts } from "~/models/posts.model";
 
 export const meta: V2_MetaFunction = () => [{ title: "Daniel Grant" }];
 
@@ -20,7 +20,7 @@ export async function loader() {
   });
 }
 
-export default function Index() {
+export default function IndexRoute() {
   const posts = useLoaderData<typeof loader>();
 
   return (

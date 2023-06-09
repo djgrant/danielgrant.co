@@ -5,8 +5,9 @@ import type {
 } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getPost } from "../models/post.model";
 import "prismjs/themes/prism-tomorrow.min.css";
+import { getPost } from "~/models/posts.model";
+import Post from "~/components/post";
 
 export const meta: V2_MetaFunction = ({ data }) => [
   { title: `${data.title} – Daniel Grant` },
@@ -34,17 +35,9 @@ export async function loader({ params }: LoaderArgs) {
   });
 }
 
-export default function Post() {
-  const { date, title, content } = useLoaderData<typeof loader>();
-  return (
-    <main>
-      <article className="prose max-w-none pb-4">
-        <h1 className="mb-2">{title}</h1>
-        <div>{date}</div>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </article>
-    </main>
-  );
+export default function PostRoute() {
+  const post = useLoaderData<typeof loader>();
+  return <Post post={post} />;
 }
 
 function isRecentlyPublished(publishedAt: string) {
