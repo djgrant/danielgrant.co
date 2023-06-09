@@ -1,4 +1,4 @@
-import type { Page } from "notion-generator";
+import type { Page } from "notion-cms";
 
 export default function Post(props: { post: Page }) {
   const { date, title, content } = props.post;

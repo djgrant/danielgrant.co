@@ -8,12 +8,17 @@ import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypePrism from "@mapbox/rehype-prism";
 import rehypeStringify from "rehype-stringify";
+import rehypeFigure from "rehype-figure";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints.js";
 
 export type PageMeta = { title: string; slug: string; date: string };
 export type Page = PageMeta & { content: string };
 
-export class NotionGenerator {
+const mdImageRegex = new RegExp(
+  /!\[(?<caption>[^\]]*)\]\((?<path>.*?)(?=\"|\))\)/
+);
+
+export class NotionCMS {
   private notion: NotionClient;
   private n2m: NotionToMarkdown;
   constructor(opts: { notionSecret: string }) {
@@ -27,10 +32,14 @@ export class NotionGenerator {
     });
 
     // todo: handle response.has_more
-    return queryResponse.results.map(NotionGenerator.getPageMeta);
+    return queryResponse.results.map(NotionCMS.getPageMeta);
   }
 
-  async getPageBySlug(slug: string, databaseId: string): Promise<Page | null> {
+  async getPageBySlug(
+    slug: string,
+    databaseId: string,
+    replaceImageUrl?: (imgUrl: string) => Promise<string> | string
+  ): Promise<Page | null> {
     const queryResponse = await this.notion.databases.query({
       database_id: databaseId,
       filter: { property: "Slug", rich_text: { equals: slug } },
@@ -39,16 +48,27 @@ export class NotionGenerator {
 
     if (!page) return null;
 
-    const meta = NotionGenerator.getPageMeta(page);
-    const markdownAst = await this.n2m.pageToMarkdown(page.id);
-    const markdownObj = this.n2m.toMarkdownString(markdownAst);
-    const markdown = markdownObj.parent.replaceAll(
-      "</details>\n",
-      "</details>\n\n"
-    );
-    const content = await NotionGenerator.markdownToHTML(markdown);
+    const meta = NotionCMS.getPageMeta(page);
+    let markdownBlocks = await this.n2m.pageToMarkdown(page.id);
 
-    return { ...meta, content };
+    if (replaceImageUrl) {
+      markdownBlocks = await Promise.all(
+        markdownBlocks.map(async (block) => {
+          if (block.type !== "image") return block;
+          const imageUrlMatches = block.parent.match(mdImageRegex);
+          if (!imageUrlMatches?.groups) return block;
+          const { caption, path } = imageUrlMatches.groups;
+          const newImageUrl = await replaceImageUrl(path);
+          block.parent = `![${caption}](${newImageUrl})`;
+          return block;
+        })
+      );
+    }
+
+    const markdown = this.n2m.toMarkdownString(markdownBlocks).parent;
+    const html = await NotionCMS.markdownToHTML(markdown);
+
+    return { ...meta, content: html };
   }
 
   private static getPageMeta(
@@ -66,14 +86,16 @@ export class NotionGenerator {
   }
 
   private static async markdownToHTML(markdown: string) {
+    const fixedMarkdown = markdown.replaceAll("</details>\n", "</details>\n\n");
     const file = await unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypePrism)
+      .use(rehypeFigure, { className: " " })
       .use(rehypeStringify)
-      .process(markdown);
+      .process(fixedMarkdown);
 
     return String(file);
   }

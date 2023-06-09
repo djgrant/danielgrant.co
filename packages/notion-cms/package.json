@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "name": "notion-cms",
+  "main": "./notion-cms.ts"
+}

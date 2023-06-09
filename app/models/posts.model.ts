@@ -1,5 +1,5 @@
 import fse from "fs-extra";
-import type { Page, PageMeta } from "notion-generator";
+import type { Page, PageMeta } from "notion-cms";
 
 export const getPosts = (): Promise<PageMeta[]> => {
   return fse.readJSON("./data/posts/index.json", { encoding: "utf-8" });
