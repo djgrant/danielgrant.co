@@ -5,9 +5,9 @@ import type {
 } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import "prismjs/themes/prism-tomorrow.min.css";
 import { getPost } from "~/models/posts.model";
 import Post from "~/components/post";
+import "prismjs/themes/prism-tomorrow.min.css";
 
 export const meta: V2_MetaFunction = ({ data }) => [
   { title: `${data.title} – Daniel Grant` },

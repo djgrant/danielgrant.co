@@ -1,4 +1,4 @@
-import type { PageMeta } from "~/services/notion";
+import type { PageMeta } from "notion-generator";
 import { NavLink } from "@remix-run/react";
 
 export function Posts({ posts }: { posts: PageMeta[] }) {

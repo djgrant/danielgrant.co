@@ -18,5 +18,10 @@
     },
     "skipLibCheck": true,
     "noEmit": true
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "esm": true
   }
 }

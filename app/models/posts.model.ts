@@ -1,16 +1,10 @@
-import { getPageBySlug, getPages } from "../services/notion";
-import { postsDatabaseId } from "~/config";
-import TTLCache from "@isaacs/ttlcache";
+import fse from "fs-extra";
+import type { Page, PageMeta } from "notion-generator";
 
-const cache = new TTLCache({ max: 10000, ttl: 120000 });
-
-export const getPosts = async () => {
-  if (cache.has(postsDatabaseId)) return cache.get(postsDatabaseId);
-  return getPages(postsDatabaseId);
+export const getPosts = (): Promise<PageMeta[]> => {
+  return fse.readJSON("./data/posts/index.json", { encoding: "utf-8" });
 };
 
-export const getPost = async (slug: string) => {
-  const cacheKey = postsDatabaseId + slug;
-  if (cache.has(cacheKey)) return cache.get(cacheKey);
-  return getPageBySlug(slug, postsDatabaseId);
+export const getPost = (slug: string): Promise<Page> => {
+  return fse.readJson(`./data/posts/${slug}.json`, { encoding: "utf-8" });
 };
