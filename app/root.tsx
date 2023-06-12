@@ -8,8 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
+
 import stylesheet from "~/styles.css";
 
 export const links: LinksFunction = () => [
@@ -27,12 +26,8 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div className="flex flex-col  h-screen max-w-3xl md:mx-auto px-5 sm:px-8">
-          <Header />
-          <div className="flex-1">
-            <Outlet />
-          </div>
-          <Footer />
+        <div className="max-w-3xl md:mx-auto px-6 sm:px-8">
+          <Outlet />
         </div>
         <ScrollRestoration />
         <Scripts />

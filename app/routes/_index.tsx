@@ -25,12 +25,10 @@ export default function IndexRoute() {
   const posts = useLoaderData<typeof loader>();
 
   return (
-    <main className="prose max-w-none pb-6">
+    <main className="prose max-w-none pt-16 pb-6">
       <h1>Hello!</h1>
-      <p>Description about Daniel Grant</p>
-      <div className="block sm:hidden">
-        <SocialIcons />
-      </div>
+      <p>I'm Daniel Grant</p>
+      <SocialIcons />
       <h2>Posts</h2>
       <Posts posts={posts} />
     </main>

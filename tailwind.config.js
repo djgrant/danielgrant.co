@@ -7,7 +7,7 @@ module.exports = {
         DEFAULT: {
           css: {
             h1: {
-              fontSize: "1.65em",
+              fontSize: "1.95em",
             },
           },
         },

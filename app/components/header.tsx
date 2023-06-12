@@ -1,17 +1,13 @@
 import { NavLink } from "@remix-run/react";
-import { SocialIcons } from "./socials";
+import { RxCaretLeft } from "react-icons/rx";
 
 export function Header() {
   return (
-    <header className="flex flex-col sm:flex-row space-y-6 sm:text-left sm:space-y-0 sm:pt-9 sm:pb-8 pt-5 pb-4 mb-6 border-b">
-      <div className="flex-1">
-        <NavLink to="/" className="text-2xl font-sans font-extrabold">
-          Daniel Grant
-        </NavLink>
+    <NavLink to="/" className="inline-block my-8 sm:my-10 -ml-[1.25em]">
+      <div className="flex place-items-center text-sm font-sans text-slate-500">
+        <RxCaretLeft size={16} className="-right-0.5 sm:right-0 relative" />
+        <span className="leading-4 ml-1">Posts</span>
       </div>
-      <div className="hidden sm:block">
-        <SocialIcons />
-      </div>
-    </header>
+    </NavLink>
   );
 }
