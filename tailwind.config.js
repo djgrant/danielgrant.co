@@ -1,6 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              fontSize: "1.65em",
+            },
+          },
+        },
+      },
+    },
+  },
   plugins: [require("@tailwindcss/typography")],
 };

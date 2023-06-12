@@ -2,6 +2,7 @@ import type { V2_MetaFunction, HeadersFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { Posts } from "~/components/posts";
+import { SocialIcons } from "~/components/socials";
 import { getPosts } from "~/models/posts.model";
 
 export const meta: V2_MetaFunction = () => [{ title: "Daniel Grant" }];
@@ -25,8 +26,11 @@ export default function IndexRoute() {
 
   return (
     <main className="prose max-w-none pb-6">
-      <h2>Hello!</h2>
+      <h1>Hello!</h1>
       <p>Description about Daniel Grant</p>
+      <div className="block sm:hidden">
+        <SocialIcons />
+      </div>
       <h2>Posts</h2>
       <Posts posts={posts} />
     </main>
