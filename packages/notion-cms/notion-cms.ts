@@ -11,7 +11,13 @@ import rehypeStringify from "rehype-stringify";
 import rehypeFigure from "rehype-figure";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints.js";
 
-export type PageMeta = { title: string; slug: string; date: string };
+export type PageMeta = {
+  title: string;
+  slug: string;
+  date: string;
+  status: string;
+};
+
 export type Page = PageMeta & { content: string };
 
 const mdImageRegex = new RegExp(
@@ -78,11 +84,12 @@ export class NotionCMS {
       throw new Error("Database query did not return a list of pages");
     }
 
+    const status = (page.properties.Status as any).select.name;
+    const date = (page.properties.Date as any).date.start;
     const title = (page.properties.Name as any).title[0].plain_text;
     const slug = slugify(title);
-    const date = (page.properties.Date as any).date.start;
 
-    return { slug, title, date };
+    return { slug, title, date, status };
   }
 
   private static async markdownToHTML(markdown: string) {
