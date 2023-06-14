@@ -3,7 +3,7 @@ import { Link, LinkProps } from "@remix-run/react";
 import { RiLinkedinBoxLine, RiTwitterLine, RiGithubLine } from "react-icons/ri";
 
 export const SocialIcons = (props: { className?: string }) => (
-  <div className={`flex text-2xl space-x-3.5 ${props.className || ""}`}>
+  <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
     <IconLink
       icon={RiTwitterLine}
       to="https://twitter.com/djgrant_"

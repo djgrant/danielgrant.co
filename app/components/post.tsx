@@ -8,7 +8,7 @@ export default function Post(props: { post: Page }) {
   return (
     <main>
       <Header />
-      <article className="prose max-w-none pb-1">
+      <article className="prose prose-lg max-w-none pb-1">
         <h1 className="mb-6">{title}</h1>
         <div className="flex mb-6 not-prose">
           <Link to="/">

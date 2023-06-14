@@ -11,6 +11,13 @@ module.exports = {
             },
           },
         },
+        lg: {
+          css: {
+            h1: {
+              fontSize: "2em",
+            },
+          },
+        },
       },
     },
   },

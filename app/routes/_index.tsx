@@ -25,7 +25,7 @@ export default function IndexRoute() {
   const posts = useLoaderData<typeof loader>();
 
   return (
-    <main className="prose max-w-none pt-16 pb-6">
+    <main className="prose prose-lg max-w-none pt-16 pb-6">
       <Intro />
       <h2>Posts</h2>
       <Posts posts={posts} />
