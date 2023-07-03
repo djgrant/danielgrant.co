@@ -11,7 +11,7 @@ export const SocialIcons = (props: { className?: string }) => (
     />
     <IconLink
       icon={RiLinkedinBoxLine}
-      to="https://www.linkedin.com/in/daniel-grant-ltd"
+      to="https://www.linkedin.com/in/~djgrant/"
       aria-label="LinkedIn"
     />
     <IconLink
