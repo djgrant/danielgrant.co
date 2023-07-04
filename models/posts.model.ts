@@ -18,9 +18,5 @@ export const getPost = async (slug: string) => {
     encoding: "utf-8",
   })) as Page;
 
-  if (process.env.NODE_ENV === "production" && post.status !== "Published") {
-    return null;
-  }
-
   return post;
 };

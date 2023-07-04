@@ -1,5 +1,5 @@
 import type { Page } from "notion-cms";
-import { Link } from "@remix-run/react";
+import Link from "next/link";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -11,7 +11,7 @@ export default function Post(props: { post: Page }) {
       <article className="prose prose-lg max-w-none pb-1">
         <h1 className="mb-6">{title}</h1>
         <div className="flex mb-6 not-prose">
-          <Link to="/">
+          <Link href="/">
             <img
               src="/images/profile.png"
               alt="Daniel Grant profile photo"
@@ -19,7 +19,7 @@ export default function Post(props: { post: Page }) {
             />
           </Link>
           <div className="font-sans">
-            <Link to="/">
+            <Link href="/">
               <div className="text-[0.85em] font-medium -mb-0.5">
                 Daniel Grant
               </div>

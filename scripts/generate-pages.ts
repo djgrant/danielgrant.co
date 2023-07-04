@@ -6,19 +6,23 @@ import path from "path";
 
 const notion = new NotionCMS({ notionSecret });
 
-// Write page manifest
-const pages = await notion.getPages(postsDatabaseId);
-await fse.writeJson("./data/posts/index.json", pages, { spaces: 2 });
+runGenerate();
 
-// Write pages
-for (const pageMeta of pages) {
-  const page = await notion.getPageBySlug(
-    pageMeta.slug,
-    postsDatabaseId,
-    imageReplacer
-  );
-  if (!page) continue;
-  await fse.writeJSON(`./data/posts/${page.slug}.json`, page, { spaces: 2 });
+async function runGenerate() {
+  // Write page manifest
+  const pages = await notion.getPages(postsDatabaseId);
+  await fse.writeJson("./data/posts/index.json", pages, { spaces: 2 });
+
+  // Write pages
+  for (const pageMeta of pages) {
+    const page = await notion.getPageBySlug(
+      pageMeta.slug,
+      postsDatabaseId,
+      imageReplacer
+    );
+    if (!page) continue;
+    await fse.writeJSON(`./data/posts/${page.slug}.json`, page, { spaces: 2 });
+  }
 }
 
 async function imageReplacer(url: string) {

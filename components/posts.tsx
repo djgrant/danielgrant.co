@@ -1,12 +1,12 @@
 import type { PageMeta } from "notion-cms";
-import { NavLink } from "@remix-run/react";
+import Link from "next/link";
 
 export function Posts({ posts }: { posts: PageMeta[] }) {
   return (
     <ul>
       {posts.map((post) => (
         <li key={post.slug}>
-          <NavLink to={`/posts/${post.slug}`}>{post.title}</NavLink>
+          <Link href={`/posts/${post.slug}`}>{post.title}</Link>
         </li>
       ))}
     </ul>
