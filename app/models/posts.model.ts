@@ -7,7 +7,7 @@ export const getPosts = async () => {
   })) as PageMeta[];
 
   if (process.env.NODE_ENV === "production") {
-    return posts.filter((post) => post.status === "Live");
+    return posts.filter((post) => post.status === "Published");
   }
 
   return posts;
@@ -18,7 +18,7 @@ export const getPost = async (slug: string) => {
     encoding: "utf-8",
   })) as Page;
 
-  if (process.env.NODE_ENV === "production" && post.status !== "Live") {
+  if (process.env.NODE_ENV === "production" && post.status !== "Published") {
     return null;
   }
 
