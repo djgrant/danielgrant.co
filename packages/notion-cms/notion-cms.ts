@@ -18,7 +18,7 @@ export type PageMeta = {
   status: string;
 };
 
-export type Page = PageMeta & { content: string };
+export type Page = PageMeta & { content: string; minutes: number };
 
 const mdImageRegex = new RegExp(
   /!\[(?<caption>[^\]]*)\]\((?<path>.*?)(?=\"|\))\)/
@@ -74,7 +74,10 @@ export class NotionCMS {
     const markdown = this.n2m.toMarkdownString(markdownBlocks).parent;
     const html = await NotionCMS.markdownToHTML(markdown);
 
-    return { ...meta, content: html };
+    const wordCount = markdown.split(" ").length;
+    const minutes = Math.ceil(wordCount / 200);
+
+    return { ...meta, minutes, content: html };
   }
 
   private static getPageMeta(

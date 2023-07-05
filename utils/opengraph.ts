@@ -6,9 +6,9 @@ export async function getOgImageOptions() {
     fonts: [
       {
         name: "Palatino",
-        data: await fetch(new URL("./Palatino.ttf", import.meta.url)).then(
-          (res) => res.arrayBuffer()
-        ),
+        data: await fetch(
+          new URL("../data/assets/Palatino.ttf", import.meta.url)
+        ).then((res) => res.arrayBuffer()),
       },
     ],
   };
