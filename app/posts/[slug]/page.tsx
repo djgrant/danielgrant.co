@@ -1,6 +1,8 @@
 import Post from "@/components/post";
 import { getPost, getPosts } from "@/models/posts.model";
 
+export const revalidate = "force-cache";
+
 export default async function Page(props: { params: { slug: string } }) {
   const post = await getPost(props.params.slug);
   return <Post post={post} />;

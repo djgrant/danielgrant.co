@@ -2,6 +2,8 @@ import { Posts } from "../components/posts";
 import { Intro } from "../components/intro";
 import { getPosts } from "../models/posts.model";
 
+export const revalidate = 6000;
+
 export default async function Home() {
   const posts = await getPosts();
   return (
