@@ -36,6 +36,7 @@ export class NotionCMS {
   async getPages(databaseId: string) {
     const queryResponse = await this.notion.databases.query({
       database_id: databaseId,
+      filter: { property: "Status", select: { equals: "Published" } },
     });
 
     // todo: handle response.has_more
