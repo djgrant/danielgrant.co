@@ -8,7 +8,7 @@ export const size = ogSize;
 export const contentType = "image/png";
 export const revalidate = "force-cache";
 
-export default async function Image(props: { params: { slug: string } }) {
+export default async function Image(props: Props) {
   const post = await getPost(props.params.slug);
   return new ImageResponse(
     (
