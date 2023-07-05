@@ -16,6 +16,7 @@ export type PageMeta = {
   slug: string;
   date: string;
   status: string;
+  summary: string;
 };
 
 export type Page = PageMeta & { content: string; minutes: number };
@@ -86,13 +87,14 @@ export class NotionCMS {
     if (!("properties" in page)) {
       throw new Error("Database query did not return a list of pages");
     }
-
+    const summary =
+      (page.properties.Summary as any).rich_text[0]?.plain_text || "";
     const status = (page.properties.Status as any).select.name;
     const date = (page.properties.Date as any).date.start;
     const title = (page.properties.Name as any).title[0].plain_text;
     const slug = slugify(title);
 
-    return { slug, title, date, status };
+    return { slug, title, date, status, summary };
   }
 
   private static async markdownToHTML(markdown: string) {

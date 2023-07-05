@@ -3,12 +3,14 @@
     "slug": "introducing-notation",
     "title": "Introducing Notation",
     "date": "2023-07-03",
-    "status": "Published"
+    "status": "Published",
+    "summary": "Notation frees developers from worrying about infrastructure, and lets them focus on building useful software."
   },
   {
     "slug": "my-new-blog",
     "title": "My New Blog",
     "date": "2023-06-06",
-    "status": "Draft"
+    "status": "Draft",
+    "summary": ""
   }
 ]

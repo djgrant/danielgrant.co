@@ -1,10 +1,12 @@
 import { ImageResponse } from "next/server";
 import { getPost } from "@/models/posts.model";
-import { ogSize, getOgImageOptions } from "../../../utils/opengraph";
+import { ogSize, getOgImageOptions } from "@/utils/opengraph";
+import { Props } from "./page";
 
 export const runtime = "edge";
 export const size = ogSize;
 export const contentType = "image/png";
+export const revalidate = "force-cache";
 
 export default async function Image(props: { params: { slug: string } }) {
   const post = await getPost(props.params.slug);
