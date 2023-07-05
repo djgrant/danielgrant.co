@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <div className="max-w-3xl md:mx-auto px-6 sm:px-8">
           {props.children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
