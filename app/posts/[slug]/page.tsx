@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: Props) {
       url: `/posts/${post.slug}`,
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      creator: "@djgrant_",
+    },
   };
 }
 
