@@ -34,8 +34,8 @@ export default async function Image(props: Props) {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
-                fontSize: 26,
-                fontFamily: "Roboto",
+                fontSize: 28,
+
                 marginBottom: 53,
                 color: "#4E9086",
               }}
@@ -45,10 +45,9 @@ export default async function Image(props: Props) {
             <div
               style={{
                 color: "black",
-                fontFamily: "Palatino",
-                fontWeight: "semibold",
-                fontSize: 76,
-                marginBottom: 12,
+
+                fontSize: 78,
+                marginBottom: 14,
               }}
             >
               {post.title}
@@ -57,8 +56,7 @@ export default async function Image(props: Props) {
               style={{
                 display: "flex",
                 color: "#808080",
-                fontSize: 28,
-                fontFamily: "Roboto",
+                fontSize: 30,
               }}
             >
               {post.minutes} minute read
@@ -74,8 +72,8 @@ export default async function Image(props: Props) {
               }}
             >
               <img
-                width="90"
-                height="90"
+                width="94"
+                height="94"
                 src={`https://github.com/djgrant.png`}
                 style={{ borderRadius: "50%", marginRight: 24 }}
               />
@@ -83,8 +81,7 @@ export default async function Image(props: Props) {
                 <div
                   style={{
                     display: "flex",
-                    fontSize: 24,
-                    fontFamily: "Roboto",
+                    fontSize: 27,
                     color: "#808080",
                     marginBottom: 6,
                   }}
@@ -97,10 +94,8 @@ export default async function Image(props: Props) {
                 </div>
                 <div
                   style={{
-                    fontSize: 26,
+                    fontSize: 28,
                     color: "#4E9086",
-                    fontFamily: "Roboto",
-                    fontWeight: "semibold",
                   }}
                 >
                   twitter.com/djgrant_
