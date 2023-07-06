@@ -17,32 +17,99 @@ export default async function Image(props: Props) {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center",
-          padding: 70,
-          background:
-            "linear-gradient(90deg, rgba(106,171,149,1) 0%, rgba(109,158,163,1) 100%)",
+          flexDirection: "column",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ color: "white", fontSize: 72, marginBottom: "14" }}>
-            {post.title}
-          </div>
-          <div style={{ display: "flex", color: "#006858", fontSize: 38 }}>
-            {post.minutes} minute read
-          </div>
-        </div>
-
         <div
           style={{
-            position: "absolute",
-            right: 70,
-            bottom: 70,
-            fontSize: 40,
-            color: "white",
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            padding: 70,
+            paddingTop: 100,
+            background: "white",
           }}
         >
-          danielgrant.co
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                fontSize: 26,
+                fontFamily: "Roboto",
+                marginBottom: 53,
+                color: "#4E9086",
+              }}
+            >
+              danielgrant.co/posts
+            </div>
+            <div
+              style={{
+                color: "black",
+                fontFamily: "Palatino",
+                fontWeight: "semibold",
+                fontSize: 76,
+                marginBottom: 12,
+              }}
+            >
+              {post.title}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                color: "#808080",
+                fontSize: 28,
+                fontFamily: "Roboto",
+              }}
+            >
+              {post.minutes} minute read
+            </div>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <img
+                width="90"
+                height="90"
+                src={`https://github.com/djgrant.png`}
+                style={{ borderRadius: "50%", marginRight: 24 }}
+              />
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    fontSize: 24,
+                    fontFamily: "Roboto",
+                    color: "#808080",
+                    marginBottom: 6,
+                  }}
+                >
+                  {new Date(post.date).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </div>
+                <div
+                  style={{
+                    fontSize: 26,
+                    color: "#4E9086",
+                    fontFamily: "Roboto",
+                    fontWeight: "semibold",
+                  }}
+                >
+                  twitter.com/djgrant_
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div style={{ height: 20, background: "#4E9086" }}></div>
       </div>
     ),
     await getOgImageOptions()
