@@ -1,6 +1,5 @@
 import { Client as NotionClient } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import slugify from "@sindresorhus/slugify";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
@@ -93,7 +92,7 @@ export class NotionCMS {
     const status = (page.properties.Status as any).select.name;
     const date = (page.properties.Date as any).date.start;
     const title = (page.properties.Name as any).title[0].plain_text;
-    const slug = slugify(title);
+    const slug = (page.properties.Slug as any).rich_text[0].plain_text;
 
     return { slug, title, date, status, summary };
   }
