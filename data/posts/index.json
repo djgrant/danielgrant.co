@@ -1,5 +1,12 @@
 [
   {
+    "slug": "daniels-word-for-2024",
+    "title": "Daniel’s Word for 2024",
+    "date": "2024-01-02",
+    "status": "Published",
+    "summary": ""
+  },
+  {
     "slug": "we-had-dreams",
     "title": "We Had Dreams",
     "date": "2023-10-16",
@@ -15,7 +22,7 @@
   },
   {
     "slug": "tiny-launch-learnings",
-    "title": "Learnings From A Tiny Launch",
+    "title": "Learnings from a Tiny Launch",
     "date": "2023-07-13",
     "status": "Published",
     "summary": "A dissection of my tiny launch on social media, and the surprisingly valuable insights that can be extracted from a single tweet."
