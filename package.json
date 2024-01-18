@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "ts-node scripts/generate-pages.ts"
+    "generate": "node --loader ts-node/esm scripts/generate-pages.ts"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
