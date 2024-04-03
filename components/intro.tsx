@@ -2,7 +2,7 @@ import { SocialIcons } from "./socials";
 
 export function Intro() {
   return (
-    <div className="prose prose-lg">
+    <div className="prose prose-lg prose-slate dark:prose-invert">
       <h1>Hello!</h1>
       <p>
         I'm Daniel Grant, a software developer based in Scotland. I currently am

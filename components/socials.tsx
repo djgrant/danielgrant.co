@@ -25,7 +25,11 @@ export const SocialIcons = (props: { className?: string }) => (
 type IconLinkProps = { icon: React.FunctionComponent } & LinkProps;
 
 const IconLink = ({ icon, ...linkProps }: IconLinkProps) => (
-  <Link {...linkProps} target="_blank" className="hover:text-teal-500">
+  <Link
+    {...linkProps}
+    target="_blank"
+    className="hover:text-teal-500 dark:text-zinc-300"
+  >
     {React.createElement(icon)}
   </Link>
 );

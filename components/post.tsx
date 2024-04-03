@@ -8,7 +8,7 @@ export default function Post(props: { post: Page }) {
   return (
     <main>
       <Header />
-      <article className="prose prose-lg max-w-none pb-1">
+      <article className="prose prose-lg dark:prose-invert max-w-none pb-1">
         <h1 className="mb-6">{title}</h1>
         <div className="flex mb-6 not-prose">
           <Link href="/">
@@ -31,10 +31,7 @@ export default function Post(props: { post: Page }) {
             </div>
           </div>
         </div>
-        <div
-          className="border-t"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div className="pt-2" dangerouslySetInnerHTML={{ __html: content }} />
       </article>
       <Footer className="mt-1 sm:mt-2 mb-1.5" />
     </main>
