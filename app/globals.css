@@ -41,6 +41,11 @@ pre {
   max-width: 5em;
 }
 
+.prose table {
+  display: block;
+  overflow: scroll;
+}
+
 .prose th {
   text-align: left;
 }
