@@ -99,6 +99,7 @@ export class NotionCMS {
 
   private static async markdownToHTML(markdown: string) {
     const fixedMarkdown = markdown.replaceAll("</details>\n", "</details>\n\n");
+
     const file = await unified()
       .use(remarkParse)
       .use(remarkGfm)
@@ -109,6 +110,6 @@ export class NotionCMS {
       .use(rehypeStringify)
       .process(fixedMarkdown);
 
-    return String(file);
+    return String(file).replaceAll("<p>undefined\n", "<p>");
   }
 }
