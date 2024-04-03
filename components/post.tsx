@@ -2,6 +2,7 @@ import type { Page } from "notion-cms";
 import Link from "next/link";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { SignUpForm } from "./sign-up";
 
 export default function Post(props: { post: Page }) {
   const { date, title, content } = props.post;
@@ -32,6 +33,13 @@ export default function Post(props: { post: Page }) {
           </div>
         </div>
         <div className="pt-2" dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="pt-4 p-4 my-8 border dark:border-slate-700 rounded-lg not-prose font-sans">
+          <p className="opacity-75 text-base mb-4">
+            Thanks for reading! If you enjoyed this, subscribe for free to get
+            next month's post delivered direct to your inbox.
+          </p>
+          <SignUpForm />
+        </div>
       </article>
       <Footer className="mt-1 sm:mt-2 mb-1.5" />
     </main>
