@@ -98,7 +98,9 @@ export class NotionCMS {
   }
 
   private static async markdownToHTML(markdown: string) {
-    const fixedMarkdown = markdown.replaceAll("</details>\n", "</details>\n\n");
+    const fixedMarkdown = markdown
+      .replaceAll("</details>\n", "</details>\n\n")
+      .replaceAll("’", "'");
 
     const file = await unified()
       .use(remarkParse)
