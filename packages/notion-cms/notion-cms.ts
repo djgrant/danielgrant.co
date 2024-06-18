@@ -15,7 +15,9 @@ export type PageMeta = {
   slug: string;
   date: string;
   status: string;
-  summary: string;
+  summary?: string;
+  month?: string;
+  tags: { id: string; name: string; color: string }[];
 };
 
 export type Page = PageMeta & { content: string; minutes: number };
@@ -93,14 +95,18 @@ export class NotionCMS {
     const date = (page.properties.Date as any).date.start;
     const title = (page.properties.Name as any).title[0].plain_text;
     const slug = (page.properties.Slug as any).rich_text[0].plain_text;
+    const month = (page.properties.Month as any).rich_text[0]?.plain_text;
+    const tags = (page.properties.Tags as any).multi_select;
 
-    return { slug, title, date, status, summary };
+    return { slug, title, date, status, summary, month, tags };
   }
 
   private static async markdownToHTML(markdown: string) {
     const fixedMarkdown = markdown
       .replaceAll("</details>\n", "</details>\n\n")
-      .replaceAll("’", "'");
+      .replaceAll("’", "'")
+      .replaceAll("“", '"')
+      .replaceAll("”", '"');
 
     const file = await unified()
       .use(remarkParse)

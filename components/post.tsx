@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { SignUpForm } from "./sign-up";
+import { Pill } from "./pill";
 
 export default function Post(props: { post: Page }) {
   const { date, title, content } = props.post;
@@ -26,12 +27,27 @@ export default function Post(props: { post: Page }) {
               </div>
             </Link>
             <div className="text-xs text-slate-500">
+              Published on{" "}
               {new Date(date).toLocaleDateString("en-UK", {
                 dateStyle: "long",
               })}
             </div>
           </div>
         </div>
+        {Boolean(props.post.tags.length) && (
+          <div className="space-x-2">
+            {props.post.tags.map((tag) => (
+              <div key={tag.id}>
+                <Pill type={tag.color as any}>{tag.name}</Pill>
+                {tag.name === "Month Notes" && props.post.month && (
+                  <Pill type="green" className="ml-2">
+                    {props.post.month}
+                  </Pill>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
         <div className="pt-2" dangerouslySetInnerHTML={{ __html: content }} />
         <div className="pt-4 p-4 my-8 border dark:border-slate-700 rounded-lg not-prose font-sans">
           <p className="opacity-75 text-base mb-4">

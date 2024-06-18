@@ -1,65 +1,117 @@
 [
   {
+    "slug": "focussing-on-what-matters",
+    "title": "Focussing On What Matters",
+    "date": "2024-06-18",
+    "status": "Published",
+    "summary": "",
+    "month": "May ‘24",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
+  },
+  {
     "slug": "digital-minimalism-data-hoarding",
     "title": "Digital Minimalism vs. Data Hoarding",
     "date": "2024-05-28",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "month": "April ‘24",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
   },
   {
     "slug": "more-than-one-way-to-work",
     "title": "More Than One Way to Work",
     "date": "2024-04-03",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "month": "March ‘24",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
   },
   {
     "slug": "opening-a-portal-to-silicon-valley",
     "title": "Opening a Portal to Silicon Valley",
     "date": "2024-03-04",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "month": "February  ‘24",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
   },
   {
     "slug": "nervous-system-tracking",
     "title": "Nervous System Tracking",
     "date": "2024-02-15",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "month": "January  ‘24",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
   },
   {
     "slug": "daniels-word-for-2024",
     "title": "Daniel’s Word for 2024",
     "date": "2024-01-02",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "tags": []
   },
   {
     "slug": "we-had-dreams",
     "title": "We Had Dreams",
     "date": "2023-10-16",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "tags": []
   },
   {
     "slug": "getting-hired-tight-labour-market",
     "title": "Getting Hired in a Tight Labour Market",
     "date": "2023-09-08",
     "status": "Published",
-    "summary": ""
+    "summary": "",
+    "tags": []
   },
   {
     "slug": "tiny-launch-learnings",
     "title": "Learnings from a Tiny Launch",
     "date": "2023-07-13",
     "status": "Published",
-    "summary": "A dissection of my tiny launch on social media, and the surprisingly valuable insights that can be extracted from a single tweet."
+    "summary": "A dissection of my tiny launch on social media, and the surprisingly valuable insights that can be extracted from a single tweet.",
+    "tags": []
   },
   {
     "slug": "introducing-notation",
     "title": "Introducing Notation",
     "date": "2023-07-07",
     "status": "Published",
-    "summary": "Notation frees developers from worrying about infrastructure, and lets them focus on building useful software."
+    "summary": "Notation frees developers from worrying about infrastructure, and lets them focus on building useful software.",
+    "tags": []
   }
 ]
