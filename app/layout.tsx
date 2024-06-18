@@ -1,5 +1,13 @@
 import { Analytics } from "@vercel/analytics/react";
+import type { Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "rgb(255, 251, 235)" },
+    { media: "(prefers-color-scheme: dark)", color: "rgb(15, 23, 42)" },
+  ],
+};
 
 export const metadata = {
   title: {
@@ -7,7 +15,6 @@ export const metadata = {
     default: "Daniel Grant",
   },
   metadataBase: new URL("https://danielgrant.co"),
-  themeColor: "rgb(255, 251, 235)",
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {

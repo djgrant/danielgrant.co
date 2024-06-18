@@ -12,7 +12,7 @@ module.exports = {
         DEFAULT: {
           css: {
             "--tw-prose-hr": theme("colors.zinc[600]"),
-            "--tw-prose-invert-body": theme("colors.zinc[400]"),
+            "--tw-prose-invert-body": theme("colors.zinc[300]"),
             "--tw-prose-invert-headings": theme("colors.zinc[200]"),
             // "--tw-prose-invert-lead": theme("colors.pink[300]"),
             "--tw-prose-invert-links": theme("colors.zinc[400]"),
