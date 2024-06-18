@@ -3,8 +3,6 @@ import { getPost, getPosts } from "@/models/posts.model";
 
 export type Props = { params: { slug: string } };
 
-export const revalidate = "force-cache";
-
 export default async function Page({ params }: Props) {
   const post = await getPost(params.slug);
   return <Post post={post} />;
