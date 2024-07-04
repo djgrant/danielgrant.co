@@ -1,5 +1,20 @@
 [
   {
+    "slug": "small-ecosystem-energy",
+    "title": "Small Ecosystem Energy",
+    "date": "2024-07-04",
+    "status": "Published",
+    "summary": "",
+    "month": "June",
+    "tags": [
+      {
+        "id": "f05f9618-efc6-45bb-be1d-5a47132f899e",
+        "name": "Month Notes",
+        "color": "red"
+      }
+    ]
+  },
+  {
     "slug": "building-in-private",
     "title": "Building In Private",
     "date": "2024-06-18",
