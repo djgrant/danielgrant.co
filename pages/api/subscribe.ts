@@ -30,7 +30,7 @@ export default async (request: Request) => {
   }
 
   try {
-    resend.contacts.create({
+    await resend.contacts.create({
       email: parsedBody.data.email,
       unsubscribed: false,
       audienceId: env.RESEND_AUDIENCE_ID,
