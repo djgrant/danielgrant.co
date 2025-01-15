@@ -1,13 +1,13 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
-import { RiLinkedinBoxLine, RiTwitterLine, RiGithubLine } from "react-icons/ri";
+import { RiLinkedinBoxLine, RiBlueskyLine, RiGithubLine } from "react-icons/ri";
 
 export const SocialIcons = (props: { className?: string }) => (
   <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
     <IconLink
-      icon={RiTwitterLine}
-      href="https://twitter.com/djgrant_"
-      aria-label="Twitter"
+      icon={RiBlueskyLine}
+      href="https://bsky.app/profile/djgrant.bsky.social"
+      aria-label="Bluesky"
     />
     <IconLink
       icon={RiLinkedinBoxLine}

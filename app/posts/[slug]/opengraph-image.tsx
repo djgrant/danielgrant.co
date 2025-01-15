@@ -97,7 +97,7 @@ export default async function Image(props: Props) {
                     color: "#4E9086",
                   }}
                 >
-                  twitter.com/djgrant_
+                  djgrant.bsky.social
                 </div>
               </div>
             </div>
