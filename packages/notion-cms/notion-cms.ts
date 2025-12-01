@@ -38,6 +38,7 @@ export class NotionCMS {
     const queryResponse = await this.notion.databases.query({
       database_id: databaseId,
       filter: { property: "Status", select: { equals: "Published" } },
+      sorts: [{ property: "Date", direction: "descending" }],
     });
 
     // todo: handle response.has_more
