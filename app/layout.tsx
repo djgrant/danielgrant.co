@@ -5,7 +5,7 @@ import "./globals.css";
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "rgb(255, 251, 235)" },
-    { media: "(prefers-color-scheme: dark)", color: "rgb(15, 23, 42)" },
+    { media: "(prefers-color-scheme: dark)", color: "rgb(18, 24, 38)" },
   ],
 };
 
@@ -19,9 +19,9 @@ export const metadata = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark:bg-slate-900">
+    <html lang="en" className="dark:bg-gray-900">
       <body>
-        <div className="max-w-3xl md:mx-auto px-6 sm:px-8">
+        <div className="max-w-[44rem] md:mx-auto px-6 sm:px-8">
           {props.children}
         </div>
         <Analytics />
