@@ -51,7 +51,7 @@ export default async function Image(props: Props) {
             >
               {post.title}
             </div>
-            <div
+            {/*<div
               style={{
                 display: "flex",
                 color: "#808080",
@@ -59,7 +59,7 @@ export default async function Image(props: Props) {
               }}
             >
               {post.minutes} minute read
-            </div>
+            </div>*/}
           </div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -106,6 +106,6 @@ export default async function Image(props: Props) {
         <div style={{ height: 20, background: "#4E9086" }}></div>
       </div>
     ),
-    await getOgImageOptions()
+    await getOgImageOptions(),
   );
 }
