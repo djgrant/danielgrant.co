@@ -38,8 +38,43 @@ pre {
 }
 
 .prose hr {
-  margin: 1.6em auto;
+  margin: 1.6em 0;
   max-width: 5em;
+  opacity: 35%;
+}
+
+.prose blockquote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border: 1px solid;
+  border-color: rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 12px 18px;
+  margin-left: -6px;
+  margin-right: -6px;
+  background: rgba(255, 255, 255, 0.025);
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 750px) {
+  .prose blockquote {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose blockquote {
+    border-color: rgb(255, 255, 255, 0.3);
+  }
+}
+
+.prose blockquote p {
+  margin: 12px 0 12px 0;
+}
+
+.prose blockquote h5 {
+  text-align: right;
 }
 
 .prose table {
