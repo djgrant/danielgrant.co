@@ -1,29 +1,41 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
 import { RiLinkedinBoxLine, RiBlueskyLine, RiGithubLine, RiTwitterXLine } from "react-icons/ri";
+import { FaHackerNews } from "react-icons/fa";
+import type { SocialLinks } from "notion-cms";
 
-export const SocialIcons = (props: { className?: string }) => (
+type SocialIconsProps = { className?: string; socialLinks?: SocialLinks };
+
+export const SocialIcons = (props: SocialIconsProps) => (
   <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
     <IconLink
       icon={RiBlueskyLine}
-      href="https://bsky.app/profile/djgrant.bsky.social"
+      href={props.socialLinks?.bluesky || "https://bsky.app/profile/djgrant.bsky.social"}
       aria-label="Bluesky"
     />
     <IconLink
       icon={RiLinkedinBoxLine}
-      href="https://www.linkedin.com/in/~djgrant/"
+      href={props.socialLinks?.linkedin || "https://www.linkedin.com/in/~djgrant/"}
       aria-label="LinkedIn"
     />
     <IconLink
       icon={RiTwitterXLine}
-      href="https://x.com/djgrant_"
+      href={props.socialLinks?.x || "https://x.com/djgrant_"}
       aria-label="X"
     />
-    <IconLink
-      icon={RiGithubLine}
-      href="https://github.com/djgrant"
-      aria-label="Github"
-    />
+    {props.socialLinks?.hn ? (
+      <IconLink
+        icon={FaHackerNews}
+        href={props.socialLinks.hn}
+        aria-label="Hacker News"
+      />
+    ) : (
+      <IconLink
+        icon={RiGithubLine}
+        href="https://github.com/djgrant"
+        aria-label="Github"
+      />
+    )}
   </div>
 );
 

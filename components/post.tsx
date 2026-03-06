@@ -1,12 +1,13 @@
 import type { Page } from "notion-cms";
 import Link from "next/link";
 import { Header } from "./header";
-import { Footer } from "./footer";
 import { SignUpForm } from "./sign-up";
+import { SocialIcons } from "./socials";
 import { Pill } from "./pill";
 
 export default function Post(props: { post: Page }) {
-  const { date, title, content } = props.post;
+  const { date, title, content, socialLinks } = props.post;
+  const hasPostLinks = socialLinks && Object.values(socialLinks).some(Boolean);
   return (
     <main>
       <Header />
@@ -49,7 +50,11 @@ export default function Post(props: { post: Page }) {
           </div>
         )}
         <div className="pt-2" dangerouslySetInnerHTML={{ __html: content }} />
-        <div className="pt-4 p-4 mt-14 mb-10 border dark:border-slate-700 rounded-lg not-prose font-sans">
+        <div className="mt-14 pt-8 w-40 border-t-2 border-teal-300 not-prose font-sans">
+          {hasPostLinks && <h3 className="text-lg font-semibold mb-4">Comments</h3>}
+          <SocialIcons socialLinks={socialLinks} />
+        </div>
+        <div className="pt-4 p-4 mt-10 mb-10 border dark:border-slate-700 rounded-lg not-prose font-sans">
           <p className="opacity-75 text-base mb-4">
             Thanks for reading! If you enjoyed this, subscribe for free to get
             next month's post delivered direct to your inbox.
@@ -57,7 +62,6 @@ export default function Post(props: { post: Page }) {
           <SignUpForm />
         </div>
       </article>
-      <Footer className="mt-1 sm:mt-2 mb-1.5" />
     </main>
   );
 }

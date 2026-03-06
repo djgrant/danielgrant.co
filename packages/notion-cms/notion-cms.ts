@@ -10,6 +10,13 @@ import rehypeStringify from "rehype-stringify";
 import rehypeFigure from "rehype-figure";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints.js";
 
+export type SocialLinks = {
+  bluesky?: string;
+  linkedin?: string;
+  x?: string;
+  hn?: string;
+};
+
 export type PageMeta = {
   title: string;
   slug: string;
@@ -18,6 +25,7 @@ export type PageMeta = {
   summary?: string;
   month?: string;
   tags: { id: string; name: string; color: string }[];
+  socialLinks: SocialLinks;
 };
 
 export type Page = PageMeta & { content: string; minutes: number };
@@ -114,8 +122,14 @@ export class NotionCMS {
     const slug = (page.properties.Slug as any).rich_text[0].plain_text;
     const month = (page.properties.Month as any).rich_text[0]?.plain_text;
     const tags = (page.properties.Tags as any).multi_select;
+    const socialLinks: SocialLinks = {
+      bluesky: (page.properties.Bluesky as any)?.url || undefined,
+      linkedin: (page.properties.LinkedIn as any)?.url || undefined,
+      x: (page.properties.X as any)?.url || undefined,
+      hn: (page.properties.HN as any)?.url || undefined,
+    };
 
-    return { slug, title, date, status, summary, month, tags };
+    return { slug, title, date, status, summary, month, tags, socialLinks };
   }
 
   private static async markdownToHTML(markdown: string) {
