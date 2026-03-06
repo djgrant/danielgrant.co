@@ -1,6 +1,6 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
-import { RiLinkedinBoxLine, RiBlueskyLine, RiGithubLine } from "react-icons/ri";
+import { RiLinkedinBoxLine, RiBlueskyLine, RiGithubLine, RiTwitterXLine } from "react-icons/ri";
 
 export const SocialIcons = (props: { className?: string }) => (
   <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
@@ -13,6 +13,11 @@ export const SocialIcons = (props: { className?: string }) => (
       icon={RiLinkedinBoxLine}
       href="https://www.linkedin.com/in/~djgrant/"
       aria-label="LinkedIn"
+    />
+    <IconLink
+      icon={RiTwitterXLine}
+      href="https://x.com/djgrant_"
+      aria-label="X"
     />
     <IconLink
       icon={RiGithubLine}
