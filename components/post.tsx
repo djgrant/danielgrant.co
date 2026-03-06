@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "./header";
 import { SignUpForm } from "./sign-up";
 import { SocialIcons } from "./socials";
+import { Comments } from "./comments";
 import { Pill } from "./pill";
 
 export default function Post(props: { post: Page }) {
@@ -50,12 +51,26 @@ export default function Post(props: { post: Page }) {
           </div>
         )}
         <div className="pt-2" dangerouslySetInnerHTML={{ __html: content }} />
-        <div className="mt-14 pt-8 w-40 border-t-2 border-teal-300 not-prose font-sans">
-          {hasPostLinks && <h3 className="text-lg font-semibold mb-4">Comments</h3>}
-          <SocialIcons socialLinks={socialLinks} />
-        </div>
-        <div className="pt-4 p-4 mt-10 mb-10 border dark:border-slate-700 rounded-lg not-prose font-sans">
-          <p className="opacity-75 text-base mb-4">
+
+        {hasPostLinks && (
+          <div className="mt-12">
+            <h3 className="text-lg font-semibold mb-4">Comments</h3>
+            <SocialIcons socialLinks={socialLinks} />
+            <div className="mt-8">
+              <Comments socialLinks={socialLinks} />
+            </div>
+            <div className="mt-16 h-8 w-40 border-t-2 border-teal-300 not-prose font-sans"></div>
+          </div>
+        )}
+        {!hasPostLinks && (
+          <div className="mb-8">
+            <div className="mt-8 h-8 w-40 border-t-2 border-teal-300 not-prose font-sans"></div>
+            <SocialIcons socialLinks={socialLinks} />
+          </div>
+        )}
+
+        <div className="mb-20">
+          <p className="opacity-75 text-base">
             Thanks for reading! If you enjoyed this, subscribe for free to get
             next month's post delivered direct to your inbox.
           </p>
