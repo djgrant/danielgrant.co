@@ -32,6 +32,22 @@ export class NotionCMS {
   constructor(opts: { notionSecret: string }) {
     this.notion = new NotionClient({ auth: opts.notionSecret });
     this.n2m = new NotionToMarkdown({ notionClient: this.notion });
+    this.n2m.setCustomTransformer("image", async (block) => {
+      const image = (block as any).image;
+      if (!image) return "";
+
+      const url =
+        image.type === "external" ? image.external?.url : image.file?.url;
+      if (!url) return "";
+
+      const caption = image.caption
+        .map((item: { plain_text: string }) => item.plain_text)
+        .join("")
+        .trim();
+
+      // Only use the explicit Notion caption; do not fall back to filename.
+      return `![${caption}](${url})`;
+    });
   }
 
   async getPages(databaseId: string) {
