@@ -21,7 +21,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark:bg-gray-900">
       <body>
-        <div className="max-w-[44rem] md:mx-auto px-6 sm:px-8">
+        <div className="max-w-[64rem] md:mx-auto px-6 sm:px-8">
           {props.children}
         </div>
         <Analytics />
