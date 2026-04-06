@@ -1,0 +1,22 @@
+[
+  {
+    "href": "https://youtu.be/Z5tg6_eIphc?t=12843",
+    "label": "Monorepos and Microservices",
+    "description": "Monorepo.World 2024"
+  },
+  {
+    "href": "https://www.youtube.com/watch?v=BLWDvDuXsE0",
+    "label": "Building Serverless Applications",
+    "description": "SFNode Meetup 2024"
+  },
+  {
+    "href": "https://www.youtube.com/watch?v=lYUutf4HEME",
+    "label": "The Art of Reduxion",
+    "description": "Ember London 2016"
+  },
+  {
+    "href": "https://codepen.io/collection/AEZORX",
+    "label": "Exploring CSS3's 3D Space",
+    "description": "Frontend London 2014"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "href": "https://github.com/djgrant/piq",
+    "label": "piq",
+    "description": "TypeScript SDK for document collections"
+  },
+  {
+    "href": "https://github.com/djgrant/pok",
+    "label": "pok",
+    "description": "Like Next.js but for CLI apps"
+  },
+  {
+    "href": "https://github.com/notationlabs/yieldstar",
+    "label": "yieldstar",
+    "description": "Local-first durable workflows"
+  },
+  {
+    "href": "https://notation.dev",
+    "label": "notation",
+    "description": "TypeScript-native infrastructure-as-code"
+  },
+  {
+    "href": "https://github.com/djgrant/mdz",
+    "label": "mdz",
+    "description": "Markdown superset for LLMs as a runtime"
+  },
+  {
+    "href": "https://code-input.vercel.app/",
+    "label": "react-code-input",
+    "description": "Turn <input /> into a mini code editor"
+  },
+  {
+    "href": "https://github.com/djgrant/classy",
+    "label": "classy",
+    "description": "Build React/Solid components from CSS classes"
+  }
+]
