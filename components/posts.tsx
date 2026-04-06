@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function Posts({ posts }: { posts: PageMeta[] }) {
   const [expanded, setExpanded] = useState(false);
-  const displayedPosts = expanded ? posts : posts.slice(0, 14);
+  const displayedPosts = expanded ? posts : posts.slice(0, 15);
   return (
     <>
       <ul className="list-none pl-0">
@@ -23,7 +23,7 @@ export function Posts({ posts }: { posts: PageMeta[] }) {
           );
         })}
       </ul>
-      {posts.length > 14 && !expanded && (
+      {posts.length > 15 && !expanded && (
         <div className="opacity-70">
           <button
             onClick={() => setExpanded(true)}

@@ -49,8 +49,9 @@ export default async function Home() {
               , <a href="https://www.volvocars.com">Volvo Cars</a>,{" "}
               <a href="https://www.ibm.com">IBM</a>,{" "}
               <a href="https://www.bbc.co.uk">BBC</a>,{" "}
-              <a href="https://www.wonderbly.com">Wonderbly</a>, and{" "}
-              <a href="https://www.kashflow.com">KashFlow</a>.
+              <a href="https://www.wonderbly.com">Wonderbly</a>,{" "}
+              <a href="https://www.kashflow.com">KashFlow</a>, and helped
+              several startups get off the ground.
             </p>
           </Section>
         </div>
