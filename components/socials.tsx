@@ -1,6 +1,11 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
-import { RiLinkedinBoxLine, RiBlueskyLine, RiGithubLine, RiTwitterXLine } from "react-icons/ri";
+import {
+  RiLinkedinBoxLine,
+  RiBlueskyLine,
+  RiGithubLine,
+  RiTwitterXLine,
+} from "react-icons/ri";
 import { FaHackerNews } from "react-icons/fa";
 import type { SocialLinks } from "notion-cms";
 
@@ -9,14 +14,19 @@ type SocialIconsProps = { className?: string; socialLinks?: SocialLinks };
 export const SocialIcons = (props: SocialIconsProps) => (
   <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
     <IconLink
-      icon={RiBlueskyLine}
-      href={props.socialLinks?.bluesky || "https://bsky.app/profile/djgrant.bsky.social"}
-      aria-label="Bluesky"
+      icon={RiLinkedinBoxLine}
+      href={
+        props.socialLinks?.linkedin || "https://www.linkedin.com/in/~djgrant/"
+      }
+      aria-label="LinkedIn"
     />
     <IconLink
-      icon={RiLinkedinBoxLine}
-      href={props.socialLinks?.linkedin || "https://www.linkedin.com/in/~djgrant/"}
-      aria-label="LinkedIn"
+      icon={RiBlueskyLine}
+      href={
+        props.socialLinks?.bluesky ||
+        "https://bsky.app/profile/djgrant.bsky.social"
+      }
+      aria-label="Bluesky"
     />
     <IconLink
       icon={RiTwitterXLine}
@@ -47,6 +57,6 @@ const IconLink = ({ icon, ...linkProps }: IconLinkProps) => (
     target="_blank"
     className="hover:text-teal-500 dark:text-zinc-300"
   >
-    {React.createElement(icon)}
+    {React.createElement(icon, { className: "w-[30px] h-[30px]" } as any)}
   </Link>
 );

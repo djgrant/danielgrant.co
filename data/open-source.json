@@ -2,27 +2,37 @@
   {
     "href": "https://github.com/djgrant/piq",
     "label": "piq",
-    "description": "TypeScript SDK for document collections"
+    "description": "Cost-aware SDK for document collections"
   },
   {
     "href": "https://github.com/djgrant/pok",
     "label": "pok",
-    "description": "Like Next.js but for CLI apps"
+    "description": "Like Next.js, but for CLI apps"
   },
   {
-    "href": "https://github.com/notationlabs/yieldstar",
+    "href": "https://yieldstar.notation.dev",
     "label": "yieldstar",
-    "description": "Local-first durable workflows"
+    "description": "A durable workflow engine for generator functions"
   },
   {
     "href": "https://notation.dev",
     "label": "notation",
-    "description": "TypeScript-native infrastructure-as-code"
+    "description": "A unified toolkit for serverless development"
   },
   {
-    "href": "https://github.com/djgrant/mdz",
-    "label": "mdz",
-    "description": "Markdown superset for LLMs as a runtime"
+    "href": "https://github.com/djgrant/pg-pipe",
+    "label": "pg-pipe",
+    "description": "Pipe and transform data beween Postgres database"
+  },
+  {
+    "href": "https://github.com/djgrant/pg-saga",
+    "label": "pg-saga",
+    "description": "Durable state machines embeded in Postgres"
+  },
+  {
+    "href": "https://github.com/djgrant/pg-task-tree",
+    "label": "pg-task-tree",
+    "description": "Postgres task queue with tree resolution semantics"
   },
   {
     "href": "https://code-input.vercel.app/",

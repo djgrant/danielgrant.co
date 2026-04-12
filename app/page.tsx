@@ -1,22 +1,34 @@
 import { Posts } from "../components/posts";
 import { Intro } from "../components/intro";
-import { Footer } from "../components/footer";
 import { LinkList } from "../components/link-list";
 import { getPosts } from "../models/posts.model";
 import openSource from "../data/open-source.json";
 import talks from "../data/talks.json";
+import research from "../data/research.json";
+import products from "../data/products.json";
 
 function Section({
   title,
   children,
+  className,
 }: {
   title: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="prose prose-lg dark:prose-invert">
-      <h2>{title}</h2>
-      {children}
+    <div
+      className={
+        "snap-start min-h-0 min-w-[420px] flex-1 flex flex-col h-full border-l- border-dashed border-white/10 prose dark:prose-invert " +
+        className
+      }
+    >
+      <h2 className="pb-1 !mt-2 !mb-0 border-b border-dashed border-white/10 pl-8 group-first:border-none">
+        {title}
+      </h2>
+      <div className="min-h-0 h-full overflow-y-scroll pl-8 pb-8 pr-20 pt-6">
+        {children}
+      </div>
     </div>
   );
 }
@@ -24,40 +36,52 @@ function Section({
 export default async function Home() {
   const posts = await getPosts();
   return (
-    <main className="pt-16 pb-6">
-      <div className="prose prose-lg dark:prose-invert">
+    <main className="h-dvh flex flex-col gap-y-4 pt-12">
+      <div className="absolute top-4 left-0 w-full border-b border-dashed border-white/10"></div>
+      <div className="flex-0 prose prose-lg dark:prose-invert pb-8">
         <Intro />
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-x-8 mt-2">
+      <div className="flex-1 flex min-h-0 group -mx-8 overflow-x-scroll snap-x snap-mandatory">
         <Section title="Posts">
           <Posts posts={posts} />
         </Section>
 
-        <div className="flex flex-col">
-          <Section title="Open Source">
-            <LinkList items={openSource} />
-          </Section>
+        <Section title="Research">
+          <LinkList items={research} />
+        </Section>
 
-          <Section title="Talks">
-            <LinkList items={talks} />
-          </Section>
+        <Section title="Open Source">
+          <LinkList items={openSource} />
+        </Section>
 
-          <Section title="Career">
-            <p>
-              I've worked at <a href="https://www.skyscanner.net">Skyscanner</a>
-              , <a href="https://www.volvocars.com">Volvo Cars</a>,{" "}
-              <a href="https://www.ibm.com">IBM</a>,{" "}
-              <a href="https://www.bbc.co.uk">BBC</a>,{" "}
-              <a href="https://www.wonderbly.com">Wonderbly</a>,{" "}
-              <a href="https://www.kashflow.com">KashFlow</a>, and helped
-              several startups get off the ground.
-            </p>
-          </Section>
-        </div>
+        <Section title="Talks">
+          <LinkList items={talks} />
+        </Section>
+
+        <Section title="Products">
+          <LinkList items={products} />
+        </Section>
+
+        <Section title="Career">
+          <p className="mt-0">
+            I worked at <a href="https://www.skyscanner.net">Skyscanner</a>,{" "}
+            <a href="https://www.volvocars.com">Volvo</a>,{" "}
+            <a href="https://www.kashflow.com">KashFlow</a>,{" "}
+            <a href="https://www.ibm.com">IBM</a> and{" "}
+            <a href="https://www.bbc.co.uk">BBC</a>.
+          </p>
+          <p>
+            I helped <a href="https://www.wonderbly.com">Wonderbly</a>,{" "}
+            <a href="https://www.meetfern.ai">Fern</a> and{" "}
+            <a href="https://contact.xyz/">Contact</a> get off the ground.
+          </p>
+          <p>
+            Interested in working with me? <br />
+            Slide in my <a href="https://www.linkedin.com/in/~djgrant/">DMs</a>
+            .{" "}
+          </p>
+        </Section>
       </div>
-
-      <Footer />
     </main>
   );
 }

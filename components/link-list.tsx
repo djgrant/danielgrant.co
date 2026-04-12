@@ -6,13 +6,15 @@ type LinkListItem = {
 
 export function LinkList({ items }: { items: LinkListItem[] }) {
   return (
-    <ul className="list-none pl-0 [&>li]:ps-0">
+    <div className="space-y-6">
       {items.map(({ href, label, description }) => (
-        <li key={href}>
-          <a href={href}>{label}</a>
-          <div className="text-base opacity-70">{description}</div>
-        </li>
+        <div key={href}>
+          <a href={href} target="_blank">
+            {label}
+          </a>
+          <div className="text-base">{description}</div>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }

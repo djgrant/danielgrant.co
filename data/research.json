@@ -1,0 +1,17 @@
+[
+  {
+    "href": "https://github.com/djgrant/sycophancy-benchmark",
+    "label": "Sycophancy Benchmark",
+    "description": "Do LLMs provide the same factual analysis to different users?"
+  },
+  {
+    "href": "https://github.com/djgrant/mdz",
+    "label": ".mdz",
+    "description": "A superset of Markdown for writing generative programs"
+  },
+  {
+    "href": "https://rowbot.danielgrant.co",
+    "label": "Rowbot",
+    "description": "What's it like talking to an LLM that can only speak SQL?"
+  }
+]
