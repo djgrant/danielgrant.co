@@ -46,7 +46,7 @@ export default async function Home() {
   return (
     <main className="h-dvh flex flex-col gap-y-4 md:pt-12">
       <div className="hidden md:block absolute top-3 left-0 w-full border-b border-dashed dark:border-white/10"></div>
-      <ScrollArrows className="hidden md:block fixed top-7 right-4 z-10" />
+      <ScrollArrows className="hidden md:block fixed top-7 right-7 z-10" />
       <div className="hidden md:block flex-0 prose prose-lg dark:prose-invert pb-10">
         <Intro />
         <SocialIcons />
