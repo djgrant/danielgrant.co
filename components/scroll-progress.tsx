@@ -17,18 +17,34 @@ export function ScrollProgress(props: {
     const sections = Array.from(
       el.querySelectorAll<HTMLElement>(":scope > *")
     );
-    let currentIdx = 0;
-    for (let i = sections.length - 1; i >= 0; i--) {
-      if (el.scrollLeft >= sections[i].offsetLeft - el.offsetLeft - 10) {
-        currentIdx = i;
-        break;
+
+    let targetIdx: number;
+
+    if (direction === "left") {
+      // Find the first section whose left edge is at or beyond scroll position;
+      // then go one before it
+      let anchorIdx = 0;
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetLeft - el.offsetLeft >= el.scrollLeft - 10) {
+          anchorIdx = i;
+          break;
+        }
       }
+      targetIdx = Math.max(0, anchorIdx - 1);
+    } else {
+      // Find the last section whose left edge the scroll has passed;
+      // then go one after it
+      let anchorIdx = 0;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (el.scrollLeft >= sections[i].offsetLeft - el.offsetLeft - 10) {
+          anchorIdx = i;
+          break;
+        }
+      }
+      targetIdx = Math.min(sections.length - 1, anchorIdx + 1);
     }
-    const nextIdx =
-      direction === "left"
-        ? Math.max(0, currentIdx - 1)
-        : Math.min(sections.length - 1, currentIdx + 1);
-    sections[nextIdx]?.scrollIntoView({
+
+    sections[targetIdx]?.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
       inline: "start",
