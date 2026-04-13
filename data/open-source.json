@@ -22,12 +22,12 @@
   {
     "href": "https://github.com/djgrant/pg-pipe",
     "label": "pg-pipe",
-    "description": "Pipe and transform data beween Postgres database"
+    "description": "Pipe and transform data beween Postgres databases"
   },
   {
     "href": "https://github.com/djgrant/pg-saga",
     "label": "pg-saga",
-    "description": "Durable state machines embeded in Postgres"
+    "description": "Durable state machines embedded in Postgres"
   },
   {
     "href": "https://github.com/djgrant/pg-task-tree",
