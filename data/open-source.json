@@ -1,11 +1,11 @@
 [
   {
-    "href": "https://github.com/djgrant/piq",
+    "href": "https://piq.danielgrant.co",
     "label": "piq",
     "description": "Cost-aware SDK for document collections"
   },
   {
-    "href": "https://github.com/djgrant/pok",
+    "href": "https://pok.danielgrant.co",
     "label": "pok",
     "description": "Like Next.js, but for CLI apps"
   },
