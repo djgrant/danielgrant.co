@@ -95,8 +95,8 @@ export default async function Home() {
           </p>
           <p>
             Interested in working with me? <br />
-            Slide in my <a href="https://www.linkedin.com/in/~djgrant/">DMs</a>
-            .{" "}
+            Slide into my{" "}
+            <a href="https://www.linkedin.com/in/~djgrant/">DMs</a>.{" "}
           </p>
         </Section>
       </ScrollProgress>
