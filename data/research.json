@@ -6,8 +6,8 @@
   },
   {
     "href": "https://github.com/djgrant/mdz",
-    "label": ".mdz",
-    "description": "A superset of Markdown for writing generative programs"
+    "label": "MDZ",
+    "description": "Does the performance of generative programs improve with a formal instruction grammar?"
   },
   {
     "href": "https://rowbot.danielgrant.co",

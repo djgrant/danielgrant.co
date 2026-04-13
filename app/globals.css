@@ -7,6 +7,16 @@ html {
   overscroll-behavior: none;
 }
 
+/* Hide horizontal scrollbar on the scroll-progress container (progress bar replaces it) */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .task-list-item input {
   margin: 0;
 }
