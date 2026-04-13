@@ -1,6 +1,7 @@
 import { Posts } from "../components/posts";
 import { Intro } from "../components/intro";
 import { LinkList } from "../components/link-list";
+import { ScrollArrows } from "../components/scroll-arrows";
 import { ScrollProgress } from "../components/scroll-progress";
 import { SocialIcons } from "../components/socials";
 import { getPosts } from "../models/posts.model";
@@ -13,6 +14,7 @@ function Section(props: {
   title: string;
   children: React.ReactNode;
   className?: string;
+  last?: true;
 }) {
   return (
     <div
@@ -20,7 +22,10 @@ function Section(props: {
       aria-label={props.title}
       className={
         "min-h-0 " +
-        "min-w-[calc(100vw+1rem)] md:min-w-[440px] flex-1 flex flex-col h-full prose dark:prose-invert " +
+        (props.last
+          ? "min-w-[calc(100vw+2rem)]  "
+          : "min-w-[calc(100vw+1rem)] ") +
+        "sm:min-w-[calc(100vw)] md:min-w-[440px] flex-1 flex flex-col h-full prose dark:prose-invert " +
         "md:border-r border-dashed dark:border-white/10 pl-8 " +
         props.className
       }
@@ -41,6 +46,7 @@ export default async function Home() {
   return (
     <main className="h-dvh flex flex-col gap-y-4 md:pt-12">
       <div className="hidden md:block absolute top-3 left-0 w-full border-b border-dashed dark:border-white/10"></div>
+      <ScrollArrows className="hidden md:block fixed top-7 right-4 z-10" />
       <div className="hidden md:block flex-0 prose prose-lg dark:prose-invert pb-10">
         <Intro />
         <SocialIcons />
@@ -49,10 +55,11 @@ export default async function Home() {
         <div className="text-black dark:text-white/90 text-2xl font-extralight tracking-wide leading-4">
           Daniel's
         </div>
-        <SocialIcons className="-mt-0.5" />
+        <SocialIcons />
       </div>
-
       <ScrollProgress sectionCount={6} className="flex-1 min-h-0 -mx-8">
+        <ScrollArrows className="md:hidden fixed right-3 sm:right-8 z-10" />
+
         <Section title="Posts">
           <Posts posts={posts} />
         </Section>
@@ -73,7 +80,7 @@ export default async function Home() {
           <LinkList items={products} />
         </Section>
 
-        <Section title="Career" className="!min-w-[calc(100vw+2rem)]">
+        <Section title="Career" last>
           <p className="mt-0">
             I have worked at <a href="https://www.skyscanner.net">Skyscanner</a>
             , <a href="https://www.volvocars.com">Volvo</a>,{" "}
