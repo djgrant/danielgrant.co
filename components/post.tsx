@@ -14,10 +14,10 @@ export default function Post(props: { post: Page }) {
       <Header />
       <article className="prose prose-lg dark:prose-invert max-w-none pb-1">
         <h1 className="mb-6">{title}</h1>
-        <div className="flex mb-6 not-prose">
+        <div className="flex mb-2 not-prose">
           <Link href="/">
             <img
-              src="/images/profile.png"
+              src="/images/profile-square.jpg"
               alt="Daniel Grant profile photo"
               className="block w-10 h-10 mr-3 rounded-full"
             />

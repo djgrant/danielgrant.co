@@ -9,7 +9,12 @@ export function LinkList({ items }: { items: LinkListItem[] }) {
     <div className="space-y-6">
       {items.map(({ href, label, description }) => (
         <div key={href}>
-          <a href={href} target="_blank" rel="noopener noreferrer">
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg"
+          >
             {label}
           </a>
           <div className="text-base">{description}</div>

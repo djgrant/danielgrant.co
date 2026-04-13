@@ -4,7 +4,7 @@
 
 html {
   font-size: 17px;
-  background-color: #f6f5f1;
+  overscroll-behavior: none;
 }
 
 .task-list-item input {
@@ -52,14 +52,16 @@ pre {
   margin-left: -6px;
   margin-right: -6px;
   background: rgba(255, 255, 255, 0.025);
-  margin-top: 24px;
-  margin-bottom: 48px;
+  margin-top: 20px;
+  margin-bottom: 32px;
 }
 
 @media (min-width: 750px) {
   .prose blockquote {
     margin-left: -8px;
     margin-right: -8px;
+    margin-top: 24px;
+    margin-bottom: 48px;
   }
 }
 

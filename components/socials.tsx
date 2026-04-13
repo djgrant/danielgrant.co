@@ -12,7 +12,7 @@ import type { SocialLinks } from "notion-cms";
 type SocialIconsProps = { className?: string; socialLinks?: SocialLinks };
 
 export const SocialIcons = (props: SocialIconsProps) => (
-  <div className={`flex text-3xl space-x-5 ${props.className || ""}`}>
+  <div className={`flex text-3xl space-x-4 ${props.className || ""}`}>
     <IconLink
       icon={RiLinkedinBoxLine}
       href={
@@ -55,8 +55,8 @@ const IconLink = ({ icon, ...linkProps }: IconLinkProps) => (
   <Link
     {...linkProps}
     target="_blank"
-    className="hover:text-teal-500 dark:text-zinc-300"
+    className="dark:text-white/70 text-zinc-600"
   >
-    {React.createElement(icon, { className: "w-[30px] h-[30px]" } as any)}
+    {React.createElement(icon, { className: "w-[26px] h-[26px]" } as any)}
   </Link>
 );

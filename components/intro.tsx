@@ -1,5 +1,3 @@
-import { SocialIcons } from "./socials";
-
 export function Intro() {
   return (
     <div className="prose prose-lg prose-slate dark:prose-invert">
@@ -7,7 +5,6 @@ export function Intro() {
       <p className="mb-6 text-base">
         I'm Daniel. I create software and write things.
       </p>
-      <SocialIcons />
     </div>
   );
 }
