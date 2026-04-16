@@ -24,10 +24,10 @@ export function ScrollArrows(props: {
           disabled={!canGoLeft}
           aria-label="Previous section"
           className={
-            "p-1 rounded transition-colors md:border " +
+            "p-1 rounded transition-colors md:border dark:border-slate-600 " +
             (props.showLabels ? "flex items-center xs:pr-2.5 " : " ") +
             (canGoLeft
-              ? "text-black/80 dark:text-white/90 md:hover:bg-black/5 md:dark:hover:bg-white/5"
+              ? "text-black/80 dark:text-white/80 md:hover:bg-black/5 md:dark:hover:bg-white/5"
               : "text-black/20 dark:text-white/20 cursor-default")
           }
         >
@@ -50,10 +50,10 @@ export function ScrollArrows(props: {
           disabled={!canGoRight}
           aria-label="Next section"
           className={
-            "p-1 rounded transition-colors md:border " +
+            "p-1 rounded transition-colors md:border dark:border-slate-600 " +
             (props.showLabels ? "flex items-center xs:pl-2.5 " : " ") +
             (canGoRight
-              ? "text-black/80 dark:text-white/90 md:hover:bg-black/5 md:dark:hover:bg-white/5"
+              ? "text-black/80 dark:text-white/80 md:hover:bg-black/5 md:dark:hover:bg-white/5"
               : "text-black/20 dark:text-white/20 cursor-default")
           }
         >

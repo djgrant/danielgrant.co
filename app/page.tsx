@@ -122,7 +122,7 @@ export default async function Home() {
         </Section>
       </ScrollProgress>
 
-      <div className="hidden md:block bg-gradient-to-l from-white dark:from-slate-800 to-transparent w-8 absolute top-0 bottom-4 right-0" />
+      <div className="hidden md:block bg-gradient-to-l from-white dark:from-slate-900 to-transparent w-8 absolute top-0 bottom-4 right-0" />
     </main>
   );
 }
