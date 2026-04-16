@@ -31,7 +31,7 @@ function Section(props: {
       }
     >
       <div className="snap-start -ml-8"></div>
-      <div className="pb-5 md:pb-3 font-medium text-2xl text-black dark:text-white/80 leading-5 md:border-b border-dashed dark:border-white/10">
+      <div className="pb-5 md:pb-3 font-medium text-2xl text-black dark:text-white/90 leading-5 md:border-b border-dashed dark:border-white/10">
         {props.title}
       </div>
       <div className="min-h-0 h-full overflow-y-scroll pb-8 pt-5 pr-8">
@@ -79,8 +79,6 @@ export default async function Home() {
           showLabels
           className="md:hidden fixed right-3 sm:right-7 z-10"
         />
-        <div></div>
-
         <Section title="Posts">
           <Posts posts={posts} />
         </Section>
@@ -103,8 +101,8 @@ export default async function Home() {
 
         <Section title="Career" last>
           <p className="mt-0">
-            I have worked at <a href="https://www.skyscanner.net">Skyscanner</a>
-            , <a href="https://www.volvocars.com">Volvo</a>,{" "}
+            I've worked at <a href="https://www.skyscanner.net">Skyscanner</a>,{" "}
+            <a href="https://www.volvocars.com">Volvo</a>,{" "}
             <a href="https://www.kashflow.com">KashFlow</a>,{" "}
             <a href="https://www.ibm.com">IBM</a> and{" "}
             <a href="https://www.bbc.co.uk">BBC</a>.

@@ -17,7 +17,7 @@ export function LinkList({ items }: { items: LinkListItem[] }) {
           >
             {label}
           </a>
-          <div className="text-base">{description}</div>
+          <div className="text-base dark:text-slate-400">{description}</div>
         </div>
       ))}
     </div>
