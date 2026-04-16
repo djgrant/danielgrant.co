@@ -86,11 +86,20 @@ export function ScrollProgress(props: {
       }
     }
 
-    // Lock vertical scrolling on sections during horizontal swipe
+    // Lock vertical scrolling on sections during horizontal swipe (touch only)
     let scrollTimeout: ReturnType<typeof setTimeout>;
+    let isTouching = false;
     const sections = el.querySelectorAll<HTMLElement>(":scope > *");
 
+    function onTouchStart() {
+      isTouching = true;
+    }
+    function onTouchEnd() {
+      isTouching = false;
+    }
+
     function onHScroll() {
+      if (!isTouching) return;
       sections.forEach((s) => {
         const inner = s.querySelector<HTMLElement>(".overflow-y-scroll");
         if (inner) inner.style.overflowY = "hidden";
@@ -107,10 +116,14 @@ export function ScrollProgress(props: {
     update();
     el.addEventListener("scroll", update, { passive: true });
     el.addEventListener("scroll", onHScroll, { passive: true });
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
     document.addEventListener("keydown", onKeyDown);
     return () => {
       el.removeEventListener("scroll", update);
       el.removeEventListener("scroll", onHScroll);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
       document.removeEventListener("keydown", onKeyDown);
       clearTimeout(scrollTimeout);
     };
