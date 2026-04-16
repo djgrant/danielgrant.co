@@ -32,7 +32,7 @@ export function ScrollArrows(props: {
         >
           <RiArrowLeftSLine className="w-5 h-5 -left-[1px] relative" />
           {props.showLabels && prevLabel && (
-            <span className="hidden xs:inline text-xs text-black/70">
+            <span className="hidden xs:inline text-xs text-black/70 dark:text-white/70">
               {prevLabel}
             </span>
           )}
@@ -40,7 +40,9 @@ export function ScrollArrows(props: {
       )}
 
       {props.showLabels && hasPrev && hasNext && (
-        <span className="text-black/30 hidden xs:block">/</span>
+        <span className="text-black/20 dark:text-white/20 hidden xs:block">
+          /
+        </span>
       )}
 
       {(hasNext || !props.showLabels) && (
@@ -57,7 +59,7 @@ export function ScrollArrows(props: {
           }
         >
           {props.showLabels && nextLabel && (
-            <span className="hidden xs:inline text-xs text-black/70">
+            <span className="hidden xs:inline text-xs text-black/70 dark:text-white/70">
               {nextLabel}
             </span>
           )}
