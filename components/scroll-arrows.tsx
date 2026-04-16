@@ -30,10 +30,17 @@ export function ScrollArrows(props: {
               : "text-black/20 dark:text-white/20 cursor-default")
           }
         >
-          <RiArrowLeftSLine className="w-5 h-5 -left-[1px] relative" />
-          {props.showLabels && prevLabel && (
-            <span className="hidden xs:inline text-xs text-black/70 dark:text-white/70">
-              {prevLabel}
+          <RiArrowLeftSLine className="w-4 h-4 sm:w-5 sm:h-5 top-[1px] sm:top-0 -left-[1px] relative" />
+          {props.showLabels && (
+            <span
+              className={
+                "hidden xs:inline text-xs transition-opacity duration-300 " +
+                (prevLabel
+                  ? "opacity-100 text-black/70 dark:text-white/70"
+                  : "opacity-0")
+              }
+            >
+              {prevLabel ?? sectionTitles[0]}
             </span>
           )}
         </button>
@@ -58,12 +65,19 @@ export function ScrollArrows(props: {
               : "text-black/20 dark:text-white/20 cursor-default")
           }
         >
-          {props.showLabels && nextLabel && (
-            <span className="hidden xs:inline text-xs text-black/70 dark:text-white/70">
-              {nextLabel}
+          {props.showLabels && (
+            <span
+              className={
+                "hidden xs:inline text-xs transition-opacity duration-300 " +
+                (nextLabel
+                  ? "opacity-100 text-black/70 dark:text-white/70"
+                  : "opacity-0")
+              }
+            >
+              {nextLabel ?? sectionTitles[sectionTitles.length - 1]}
             </span>
           )}
-          <RiArrowRightSLine className="w-5 h-5 -right-[1px] relative" />
+          <RiArrowRightSLine className="w-4 h-4 sm:w-5 sm:h-5 top-[1px] sm:top-0 -right-[1px] relative" />
         </button>
       )}
     </div>
