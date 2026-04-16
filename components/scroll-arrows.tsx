@@ -10,15 +10,14 @@ export function ScrollArrows(props: {
   const { canGoLeft, canGoRight, goLeft, goRight, activeIndex, sectionTitles } =
     useScrollNav();
 
-  const prevLabel = activeIndex > 0 ? sectionTitles[activeIndex - 1] : null;
-  const nextLabel =
-    activeIndex < sectionTitles.length - 1
-      ? sectionTitles[activeIndex + 1]
-      : null;
+  const hasPrev = activeIndex > 0;
+  const hasNext = activeIndex < sectionTitles.length - 1;
+  const prevLabel = hasPrev ? sectionTitles[activeIndex - 1] : null;
+  const nextLabel = hasNext ? sectionTitles[activeIndex + 1] : null;
 
   return (
     <div className={"flex md:gap-2 items-center " + props.className}>
-      {(canGoLeft || !props.showLabels) && (
+      {(hasPrev || !props.showLabels) && (
         <button
           onClick={goLeft}
           disabled={!canGoLeft}
@@ -40,11 +39,11 @@ export function ScrollArrows(props: {
         </button>
       )}
 
-      {props.showLabels && canGoLeft && canGoRight && (
+      {props.showLabels && hasPrev && hasNext && (
         <span className="text-black/30 hidden xs:block">/</span>
       )}
 
-      {(canGoRight || !props.showLabels) && (
+      {(hasNext || !props.showLabels) && (
         <button
           onClick={goRight}
           disabled={!canGoRight}
