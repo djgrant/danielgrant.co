@@ -5,6 +5,8 @@ type ScrollNavState = {
   canGoRight: boolean;
   goLeft: () => void;
   goRight: () => void;
+  activeIndex: number;
+  sectionTitles: string[];
 };
 
 const noop = () => {};
@@ -14,6 +16,8 @@ let state: ScrollNavState = {
   canGoRight: true,
   goLeft: noop,
   goRight: noop,
+  activeIndex: 0,
+  sectionTitles: [],
 };
 
 const listeners = new Set<() => void>();
@@ -41,6 +45,8 @@ const serverSnapshot: ScrollNavState = {
   canGoRight: true,
   goLeft: noop,
   goRight: noop,
+  activeIndex: 0,
+  sectionTitles: [],
 };
 
 export function useScrollNav() {

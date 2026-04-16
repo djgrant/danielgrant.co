@@ -55,10 +55,11 @@ const IconLink = ({ icon, ...linkProps }: IconLinkProps) => (
   <Link
     {...linkProps}
     target="_blank"
-    className="dark:text-white/70 text-zinc-600 md:dark:text-white/90 md:text-slate-800"
+    className="dark:text-white/70 text-zinc-700 md:dark:text-white/90 md:text-slate-800"
   >
     {React.createElement(icon, {
-      className: "w-[26px] h-[26px] md:w-[28px] md:h-[28px]",
+      className:
+        "w-[22px] h-[22px] xs:w-[25px] xs:h-[25px] md:w-[28px] md:h-[28px]",
     } as any)}
   </Link>
 );

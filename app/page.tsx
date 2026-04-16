@@ -45,20 +45,41 @@ export default async function Home() {
   const posts = await getPosts();
   return (
     <main className="h-dvh flex flex-col gap-y-4 md:pt-12">
-      <div className="hidden md:block absolute top-3 left-0 w-full border-b border-dashed dark:border-white/10"></div>
-      <ScrollArrows className="hidden md:block fixed top-7 right-7 z-10" />
-      <div className="hidden md:block flex-0 prose prose-lg dark:prose-invert pb-10">
+      <div className="hidden md:block absolute top-3 left-0 z-20 w-full border-b border-dashed dark:border-white/10"></div>
+
+      <div className="hidden flex-0 md:block pb-10">
         <Intro />
         <SocialIcons />
       </div>
+
+      <ScrollArrows
+        showLabels={false}
+        className="hidden md:flex absolute top-7 right-4 z-20"
+      />
+
       <div className="flex items-end justify-between pt-3 sm:pt-8 md:hidden">
         <div className="text-black dark:text-white/90 text-2xl font-extralight tracking-wide leading-4">
           Daniel's
         </div>
-        <SocialIcons />
+        <SocialIcons className="top-1 relative" />
       </div>
-      <ScrollProgress sectionCount={6} className="flex-1 min-h-0 -mx-8">
-        <ScrollArrows className="md:hidden fixed right-3 sm:right-8 z-10" />
+      <ScrollProgress
+        sectionCount={6}
+        sectionTitles={[
+          "Posts",
+          "Research",
+          "Open Source",
+          "Talks",
+          "Products",
+          "Career",
+        ]}
+        className="flex-1 min-h-0 -mx-8 relative"
+      >
+        <ScrollArrows
+          showLabels
+          className="md:hidden fixed right-3 sm:right-7 z-10"
+        />
+        <div></div>
 
         <Section title="Posts">
           <Posts posts={posts} />
@@ -100,6 +121,8 @@ export default async function Home() {
           </p>
         </Section>
       </ScrollProgress>
+
+      <div className="hidden md:block bg-gradient-to-l from-white dark:from-slate-800 to-transparent w-8 absolute top-0 bottom-4 right-0" />
     </main>
   );
 }

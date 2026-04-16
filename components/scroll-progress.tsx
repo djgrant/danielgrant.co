@@ -7,6 +7,7 @@ export function ScrollProgress(props: {
   children: React.ReactNode;
   className?: string;
   sectionCount: number;
+  sectionTitles: string[];
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,9 +15,7 @@ export function ScrollProgress(props: {
   const navigate = useCallback((direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    const sections = Array.from(
-      el.querySelectorAll<HTMLElement>(":scope > *")
-    );
+    const sections = Array.from(el.querySelectorAll<HTMLElement>(":scope > *"));
 
     let targetIdx: number;
 
@@ -61,7 +60,8 @@ export function ScrollProgress(props: {
       const maxScroll = el.scrollWidth - el.clientWidth;
       if (maxScroll <= 0) return;
       const progress = el.scrollLeft / maxScroll;
-      setActiveIndex(Math.round(progress * (props.sectionCount - 1)));
+      const idx = Math.round(progress * (props.sectionCount - 1));
+      setActiveIndex(idx);
 
       const lastChild = el.lastElementChild as HTMLElement | null;
       const lastChildFullyVisible = lastChild
@@ -74,6 +74,8 @@ export function ScrollProgress(props: {
         canGoRight: !lastChildFullyVisible,
         goLeft: () => navigate("left"),
         goRight: () => navigate("right"),
+        activeIndex: idx,
+        sectionTitles: props.sectionTitles,
       });
     }
 
@@ -118,20 +120,20 @@ export function ScrollProgress(props: {
     <div className={"relative " + props.className}>
       <div
         ref={scrollRef}
-        className="flex min-h-0 h-full overflow-x-scroll snap-x snap-mandatory hide-scrollbar focus:outline-none focus-visible:ring-2"
+        className="flex min-h-0 h-full overflow-x-scroll snap-x snap-mandatory <md:hide-scrollbar focus:outline-none focus-visible:ring-2 relative"
         tabIndex={0}
       >
         {props.children}
       </div>
-      <div className="md:hidden absolute top-[2.3rem] left-8 right-8 flex gap-1">
+      <div className="md:hidden absolute top-[2.3rem] left-8 right-8 flex gap-2">
         {Array.from({ length: props.sectionCount }, (_, i) => (
           <div
             key={i}
             className={
-              "h-[1.5px] flex-1 transition-colors duration-200 " +
+              "h-[2.5px] flex-1 rounded-full transition-colors duration-200 " +
               (i <= activeIndex
                 ? "bg-slate-800 dark:bg-white"
-                : "bg-black/10 dark:bg-white/30")
+                : "bg-black/15 dark:bg-white/30")
             }
           />
         ))}
