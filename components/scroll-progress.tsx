@@ -11,6 +11,15 @@ export function ScrollProgress(props: {
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const navigate = useCallback((direction: "left" | "right") => {
     const el = scrollRef.current;
@@ -69,6 +78,17 @@ export function ScrollProgress(props: {
           el.scrollLeft + el.clientWidth + 10
         : true;
 
+      if (isMobile) {
+        const sections = Array.from(el.querySelectorAll<HTMLElement>(":scope > *"));
+        sections.forEach((s) => {
+          const heading = s.querySelector<HTMLElement>(":scope > div:nth-child(2)");
+          if (!heading) return;
+          const offset = Math.abs(s.offsetLeft - el.offsetLeft - el.scrollLeft);
+          const opacity = Math.max(0, 1 - offset / (s.offsetWidth * 0.5));
+          heading.style.opacity = String(opacity);
+        });
+      }
+
       setScrollNav({
         canGoLeft: el.scrollLeft > 10,
         canGoRight: !lastChildFullyVisible,
@@ -126,8 +146,11 @@ export function ScrollProgress(props: {
       el.removeEventListener("touchend", onTouchEnd);
       document.removeEventListener("keydown", onKeyDown);
       clearTimeout(scrollTimeout);
+      el.querySelectorAll<HTMLElement>(":scope > * > div:nth-child(2)").forEach(
+        (h) => h.style.removeProperty("opacity")
+      );
     };
-  }, [props.sectionCount, navigate]);
+  }, [props.sectionCount, navigate, isMobile]);
 
   return (
     <div className={"relative " + props.className}>
@@ -145,7 +168,7 @@ export function ScrollProgress(props: {
             className={
               "h-[2.5px] flex-1 rounded-full transition-colors duration-200 " +
               (i <= activeIndex
-                ? "bg-slate-800 dark:bg-white"
+                ? "bg-slate-800 dark:bg-white/90"
                 : "bg-black/15 dark:bg-white/30")
             }
           />
