@@ -26,12 +26,13 @@ export type PageMeta = {
   month?: string;
   tags: { id: string; name: string; color: string }[];
   socialLinks: SocialLinks;
+  externalUrl?: string;
 };
 
 export type Page = PageMeta & { content: string; minutes: number };
 
 const mdImageRegex = new RegExp(
-  /!\[(?<caption>[^\]]*)\]\((?<path>.*?)(?=\"|\))\)/
+  /!\[(?<caption>[^\]]*)\]\((?<path>.*?)(?=\"|\))\)/,
 );
 
 export class NotionCMS {
@@ -72,7 +73,7 @@ export class NotionCMS {
   async getPageBySlug(
     slug: string,
     databaseId: string,
-    replaceImageUrl?: (imgUrl: string) => Promise<string> | string
+    replaceImageUrl?: (imgUrl: string) => Promise<string> | string,
   ): Promise<Page | null> {
     const queryResponse = await this.notion.databases.query({
       database_id: databaseId,
@@ -95,7 +96,7 @@ export class NotionCMS {
           const newImageUrl = await replaceImageUrl(path);
           block.parent = `![${caption}](${newImageUrl})`;
           return block;
-        })
+        }),
       );
     }
 
@@ -109,7 +110,7 @@ export class NotionCMS {
   }
 
   private static getPageMeta(
-    page: QueryDatabaseResponse["results"][number]
+    page: QueryDatabaseResponse["results"][number],
   ): PageMeta {
     if (!("properties" in page)) {
       throw new Error("Database query did not return a list of pages");
