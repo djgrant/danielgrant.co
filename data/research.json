@@ -1,7 +1,7 @@
 [
   {
-    "href": "https://github.com/djgrant/sycophancy-benchmark",
-    "label": "Sycophancy Benchmark",
+    "href": "https://github.com/djgrant/duplicity-benchmark",
+    "label": "Duplicity Benchmark",
     "description": "Do LLMs provide the same factual analysis to different users?"
   },
   {
