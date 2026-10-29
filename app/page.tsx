@@ -37,8 +37,8 @@ export default async function Home() {
         sectionCount={6}
         sectionTitles={[
           "Posts",
-          "Research",
           "Open Source",
+          "Research",
           "Talks",
           "Products",
           "Career",
@@ -53,12 +53,12 @@ export default async function Home() {
           <Posts posts={posts} />
         </Section>
 
-        <Section title="Research">
-          <LinkList items={research} />
-        </Section>
-
         <Section title="Open Source">
           <LinkList items={openSource} />
+        </Section>
+
+        <Section title="Research">
+          <LinkList items={research} />
         </Section>
 
         <Section title="Talks">

@@ -1,5 +1,10 @@
 [
   {
+    "href": "https://wikigraphic.danielgrant.co",
+    "label": "Wikigraphic",
+    "description": "Can cheap models present Wikipedia pages as infographics?"
+  },
+  {
     "href": "https://github.com/djgrant/duplicity-benchmark",
     "label": "Duplicity Benchmark",
     "description": "Do LLMs provide the same factual analysis to different users?"
@@ -13,10 +18,5 @@
     "href": "https://rowbot.danielgrant.co",
     "label": "Rowbot",
     "description": "Do LLMs communicate better if they only speak SQL?"
-  },
-  {
-    "href": "https://wikigraphic.danielgrant.co",
-    "label": "Wikigraphic",
-    "description": "Can LLMs turn any question into an infographic by modelling Wikipedia as SQL?"
   }
 ]
