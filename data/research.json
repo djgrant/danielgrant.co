@@ -13,5 +13,10 @@
     "href": "https://rowbot.danielgrant.co",
     "label": "Rowbot",
     "description": "Do LLMs communicate better if they only speak SQL?"
+  },
+  {
+    "href": "https://wikigraphic.danielgrant.co",
+    "label": "Wikigraphic",
+    "description": "Can LLMs turn any question into an infographic by modelling Wikipedia as SQL?"
   }
 ]
