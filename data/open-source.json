@@ -1,5 +1,10 @@
 [
   {
+    "href": "https://notation.dev/emailfs",
+    "label": "EmailFS",
+    "description": "Sync Gmail messages to markdown files"
+  },
+  {
     "href": "https://piq.danielgrant.co",
     "label": "piq",
     "description": "Cost-aware SDK for document collections"

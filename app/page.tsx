@@ -9,7 +9,6 @@ import { getPosts } from "../models/posts.model";
 import openSource from "../data/open-source.json";
 import talks from "../data/talks.json";
 import research from "../data/research.json";
-import products from "../data/products.json";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -34,13 +33,12 @@ export default async function Home() {
         <SocialIcons className="top-1 relative" />
       </div>
       <ScrollProgress
-        sectionCount={6}
+        sectionCount={5}
         sectionTitles={[
           "Posts",
-          "Open Source",
+          "Projects",
           "Research",
           "Talks",
-          "Products",
           "Career",
         ]}
         className="flex-1 min-h-0 -mx-8 relative"
@@ -53,7 +51,7 @@ export default async function Home() {
           <Posts posts={posts} />
         </Section>
 
-        <Section title="Open Source">
+        <Section title="Projects">
           <LinkList items={openSource} />
         </Section>
 
@@ -63,10 +61,6 @@ export default async function Home() {
 
         <Section title="Talks">
           <LinkList items={talks} />
-        </Section>
-
-        <Section title="Products">
-          <LinkList items={products} />
         </Section>
 
         <Section title="Career" last>
